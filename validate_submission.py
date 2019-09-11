@@ -31,7 +31,7 @@ META_INFOS = {
 
 OUR_TEST_ZIP_FILENAME = 'test.zip'
 parser = argparse.ArgumentParser()
-parser.add_argument('assignment', HOMEWORK_FILENAMES.keys())
+parser.add_argument('assignment', choices=HOMEWORK_FILENAMES.keys())
 parser.add_argument('zip_file_path')
 
 def run_evaluation(testfile_path, tempdir_path, filenames):
