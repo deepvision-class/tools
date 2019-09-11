@@ -10,6 +10,16 @@ git clone https://github.com/deepvision-class/tools.git
 ## Homework Validation
 Use this script to validate the .zip file for your homework before submitting it.
 
+Usage:
+```bash
+python validate_submission.py [assignment] [zip file]
+```
+
+Example:
+```bash
+python validate_submission.py a1 justincj_012345.zip
+```
+
 This script will attempt to warn you about issues with your homework assignment:
 - Zip file is not named correctly
 - Zip file contains the correct files
