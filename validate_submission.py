@@ -19,12 +19,14 @@ META_INFOS = {
   'pytorch101.ipynb': {
     'num_cells': 152,
     'num_markdowns': 89,
-    'code_cell_idx_list': [2, 28, 33, 42, 57, 61, 70, 75, 77, 98, 113, 122, 140, 151]
+    'code_cell_idx_list': [2, 28, 33, 42, 57, 61, 70, 75, 77, 98, 113, 122, 140, 151],
+    'num_code_outputs': 59,
   },
   'knn.ipynb': {
     'num_cells': 48,
     'num_markdowns': 25,
-    'code_cell_idx_list': [16, 22, 26, 32, 40, 45]
+    'code_cell_idx_list': [16, 22, 26, 32, 40, 45],
+    'num_code_outputs': 16,
   }
 }
 #################################################
@@ -85,7 +87,7 @@ def run_evaluation(testfile_path, tempdir_path, filenames):
 
     # 3.2 Check the number of Cells
     if len(nb.cells) != metadata['num_cells']:
-      print("[ERROR] The number of cells are not matched.")
+      print("[ERROR] The number of cells are not matched: {}".format(repfile))
       print("Expected vs Real : {} vs {}".format(metadata['num_cells'], len(nb.cells)))
       print("DO NOT REMOVE/ADD additional cells")
       return False
@@ -93,7 +95,7 @@ def run_evaluation(testfile_path, tempdir_path, filenames):
     # 3.3 Check the number of the markdown cells
     num_markdown_cells = len([idx for idx, c in enumerate(nb.cells) if c['cell_type'] == 'markdown'])
     if num_markdown_cells != metadata['num_markdowns']:
-      print("[ERROR] The number of markdown cells are not matched.")
+      print("[ERROR] The number of markdown cells are not matched: {}".format(repfile))
       print("Please check whether you removed any of the text cell or not")
       return False
 
@@ -101,15 +103,17 @@ def run_evaluation(testfile_path, tempdir_path, filenames):
     stduent_code_cell_idx_list = [idx for idx, c in enumerate(nb.cells)
                                   if "END OF YOUR CODE" in c['source']]
     if metadata['code_cell_idx_list'] != stduent_code_cell_idx_list:
-      print("[ERROR] Position of code cells are not matched. Please check the order of your cells")
+      print("[ERROR] Position of code cells are not matched: {}".format(repfile))
+      print("Please check the order of your cells")
       return False
 
     # 3.5 Check if student wipe out the print log in any code cells
-    for single_cell in nb.cells:
-      if single_cell['cell_type'] == 'code':
-        if len(single_cell.get('outputs', [])) == 0:
-          print("[ERROR] Some print logs are removed. Please re-run your ipynb file.")
-          return False
+    stduent_code_cell_print_count = sum([1 for c in nb.cells if (c['cell_type'] == 'code') and (len(c.get('outputs', [])) != 0)])
+    if stduent_code_cell_print_count != metadata['num_code_outputs']:
+      print("[ERROR] Some print logs are removed: {}".format(repfile))
+      print("Expected vs Real : {} vs {}".format(metadata['num_code_outputs'], stduent_code_cell_print_count))
+      print("Please re-run your ipynb file.")
+      return False
 
   return True
 
