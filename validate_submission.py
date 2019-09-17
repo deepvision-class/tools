@@ -13,7 +13,8 @@ import nbformat
 #################################################
 # DO NOT TOUCH THIS CONFIGS
 HOMEWORK_FILENAMES = {
-  'a1': [['pytorch101.ipynb'], ['kNN.ipynb', 'knn.ipynb']]
+  'a1': [['pytorch101.ipynb'], ['kNN.ipynb', 'knn.ipynb']],
+  'a2': [['linear_classifier.ipynb'], ['two_layer_net.ipynb']]
 }
 META_INFOS = {
   'pytorch101.ipynb': {
@@ -27,6 +28,18 @@ META_INFOS = {
     'num_markdowns': 25,
     'code_cell_idx_list': [16, 22, 26, 32, 40, 45],
     'num_code_outputs': 16,
+  },
+  'linear_classifier.ipynb': {
+    'num_cells': 76,
+    'num_markdowns': 39,
+    'code_cell_idx_list': [13, 21, 27, 33, 39, 48, 56, 69],
+    'num_code_outputs': 14
+  },
+  'two_layer_net.ipynb': {
+    'num_cells': 54,
+    'num_markdowns': 27,
+    'code_cell_idx_list': [12, 16, 24, 26, 49],
+    'num_code_outputs': 18
   }
 }
 #################################################
