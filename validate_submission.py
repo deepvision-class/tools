@@ -33,7 +33,7 @@ META_INFOS = {
     'num_cells': 76,
     'num_markdowns': 39,
     'code_cell_idx_list': [13, 21, 27, 33, 39, 48, 56, 69],
-    'num_code_outputs': 14
+    'num_code_outputs': 27
   },
   'two_layer_net.ipynb': {
     'num_cells': 54,
