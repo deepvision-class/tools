@@ -86,7 +86,7 @@ def run_evaluation(testfile_path, tempdir_path, filenames):
 
   # 3. start to check about ipynb files
   for repfile, studentfile in repfile_to_repfile_dict.items():
-    with open(os.path.join(tempdir_path, studentfile), 'r') as f:
+    with open(os.path.join(tempdir_path, studentfile), 'r', encoding='utf-8') as f:
       nb = nbformat.read(f, nbformat.NO_CONVERT)
 
     metadata = META_INFOS[repfile]
