@@ -14,7 +14,8 @@ import nbformat
 # DO NOT TOUCH THIS CONFIGS
 HOMEWORK_FILENAMES = {
   'a1': [['pytorch101.ipynb'], ['kNN.ipynb', 'knn.ipynb']],
-  'a2': [['linear_classifier.ipynb'], ['two_layer_net.ipynb']]
+  'a2': [['linear_classifier.ipynb'], ['two_layer_net.ipynb']],
+  'a3': [['fully_connected_networks.ipynb'], ['convolutional_networks.ipynb']],
 }
 META_INFOS = {
   'pytorch101.ipynb': {
@@ -40,7 +41,19 @@ META_INFOS = {
     'num_markdowns': 27,
     'code_cell_idx_list': [12, 16, 24, 26, 49],
     'num_code_outputs': 18
-  }
+  },
+  'fully_connected_networks.ipynb': {
+    'num_cells': 91,
+    'num_markdowns': 47,
+    'code_cell_idx_list': [15, 19, 26, 30, 42, 47, 50, 54, 56, 61, 67, 71, 79, 83],
+    'num_code_outputs': 25
+  },
+  'convolutional_networks.ipynb': {
+    'num_cells': 117,
+    'num_markdowns': 57,
+    'code_cell_idx_list': [14, 20, 26, 30, 45, 59, 65, 67, 73, 79, 85, 90, 95, 101],
+    'num_code_outputs': 37
+  },
 }
 #################################################
 
