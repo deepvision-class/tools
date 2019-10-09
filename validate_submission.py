@@ -49,7 +49,7 @@ META_INFOS = {
     'num_code_outputs': 25
   },
   'convolutional_networks.ipynb': {
-    'num_cells': 117,
+    'num_cells': 116,
     'num_markdowns': 57,
     'code_cell_idx_list': [14, 20, 26, 30, 45, 59, 65, 67, 73, 79, 85, 90, 95, 101],
     'num_code_outputs': 37
