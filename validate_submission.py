@@ -16,6 +16,8 @@ HOMEWORK_FILENAMES = {
   'a1': [['pytorch101.ipynb'], ['kNN.ipynb', 'knn.ipynb']],
   'a2': [['linear_classifier.ipynb'], ['two_layer_net.ipynb']],
   'a3': [['fully_connected_networks.ipynb'], ['convolutional_networks.ipynb']],
+  'a4': [['pytorch_autograd_and_nn.ipynb'], ['rnn_lstm_attention_captioning.ipynb'], \
+         ['network_visualization.ipynb'], ['style_transfer.ipynb']]
 }
 META_INFOS = {
   'pytorch101.ipynb': {
@@ -53,6 +55,30 @@ META_INFOS = {
     'num_markdowns': 57,
     'code_cell_idx_list': [14, 20, 26, 30, 45, 59, 65, 67, 73, 79, 85, 90, 95, 101],
     'num_code_outputs': 37
+  },
+  'pytorch_autograd_and_nn.ipynb': {
+    'num_code_outputs': 22,
+    'num_markdowns': 36,
+    'code_cell_idx_list': [18, 30, 34, 42, 48, 51, 54, 64, 69],
+    'num_cells': 73
+  },
+  'rnn_lstm_attention_captioning.ipynb': {
+    'num_code_outputs': 30,
+    'num_markdowns': 63,
+    'code_cell_idx_list': [15, 19, 23, 27, 40, 46, 50, 52, 54, 69, 73, 89, 97],
+    'num_cells': 112
+  },
+  'network_visualization.ipynb': {
+    'num_code_outputs': 7,
+    'num_markdowns': 14,
+    'code_cell_idx_list': [12, 16, 23],
+    'num_cells': 28
+  },
+  'style_transfer.ipynb': {
+    'num_code_outputs': 12,
+    'num_markdowns': 20,
+    'code_cell_idx_list': [16, 20, 24, 28],
+    'num_cells': 39
   },
 }
 #################################################
