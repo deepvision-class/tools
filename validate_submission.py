@@ -69,7 +69,7 @@ META_INFOS = {
     'num_cells': 112
   },
   'network_visualization.ipynb': {
-    'num_code_outputs': 8,
+    'num_code_outputs': 9,
     'num_markdowns': 14,
     'code_cell_idx_list': [12, 16, 23],
     'num_cells': 28
