@@ -17,7 +17,8 @@ HOMEWORK_FILENAMES = {
   'a2': [['linear_classifier.ipynb'], ['two_layer_net.ipynb']],
   'a3': [['fully_connected_networks.ipynb'], ['convolutional_networks.ipynb']],
   'a4': [['pytorch_autograd_and_nn.ipynb'], ['rnn_lstm_attention_captioning.ipynb'], \
-         ['network_visualization.ipynb'], ['style_transfer.ipynb']]
+         ['network_visualization.ipynb'], ['style_transfer.ipynb']],
+  'a5': [['single_stage_detector_yolo.ipynb'], ['two_stage_detector_faster_rcnn.ipynb']],
 }
 META_INFOS = {
   'pytorch101.ipynb': {
@@ -79,6 +80,18 @@ META_INFOS = {
     'num_markdowns': 20,
     'code_cell_idx_list': [16, 20, 24, 28],
     'num_cells': 39
+  },
+  'single_stage_detector_yolo.ipynb': {
+    'num_code_outputs': 26,
+    'num_markdowns': 57,
+    'code_cell_idx_list': [38, 43, 56, 66, 82, 93, 98],
+    'num_cells': 107
+  },
+  'two_stage_detector_faster_rcnn.ipynb': {
+    'num_code_outputs': 20,
+    'num_markdowns': 33,
+    'code_cell_idx_list': [28, 39, 50],
+    'num_cells': 63
   },
 }
 #################################################
