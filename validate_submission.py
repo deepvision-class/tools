@@ -82,7 +82,7 @@ META_INFOS = {
     'num_cells': 39
   },
   'single_stage_detector_yolo.ipynb': {
-    'num_code_outputs': 26,
+    'num_code_outputs': 27,
     'num_markdowns': 57,
     'code_cell_idx_list': [38, 43, 56, 66, 82, 93, 98],
     'num_cells': 107
@@ -168,6 +168,8 @@ def run_evaluation(testfile_path, tempdir_path, filenames):
     stduent_code_cell_idx_list = [idx for idx, c in enumerate(nb.cells)
                                   if "END OF YOUR CODE" in c['source']]
     if metadata['code_cell_idx_list'] != stduent_code_cell_idx_list:
+      print("Expected:", metadata['code_cell_idx_list'])
+      print("Current:", stduent_code_cell_idx_list)
       print("[ERROR] Position of code cells are not matched: {}".format(repfile))
       print("Please check the order of your cells")
       return False
