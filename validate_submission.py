@@ -19,6 +19,7 @@ HOMEWORK_FILENAMES = {
   'a4': [['pytorch_autograd_and_nn.ipynb'], ['rnn_lstm_attention_captioning.ipynb'], \
          ['network_visualization.ipynb'], ['style_transfer.ipynb']],
   'a5': [['single_stage_detector_yolo.ipynb'], ['two_stage_detector_faster_rcnn.ipynb']],
+  'a6': [['generative_adversarial_networks.ipynb']],
 }
 META_INFOS = {
   'pytorch101.ipynb': {
@@ -92,6 +93,12 @@ META_INFOS = {
     'num_markdowns': 33,
     'code_cell_idx_list': [28, 39, 50],
     'num_cells': 63
+  },
+  'generative_adversarial_networks.ipynb': {
+    'num_cells': 56,
+    'num_markdowns': 28,
+    'code_cell_idx_list': [15, 19, 23, 28, 33, 39, 46, 50],
+    'num_code_outputs': 17
   },
 }
 #################################################
