@@ -17,7 +17,7 @@ python validate_submission.py [assignment] [zip file]
 
 Example:
 ```bash
-python validate_submission.py a1 justincj_012345.zip
+python validate_submission.py A1 justincj_01234567_A1.zip
 ```
 
 This script will attempt to warn you about issues with your homework assignment:
