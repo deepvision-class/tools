@@ -13,102 +13,30 @@ import nbformat
 #################################################
 # DO NOT TOUCH THIS CONFIGS
 HOMEWORK_FILENAMES = {
-  'a1': [['pytorch101.ipynb'], ['kNN.ipynb', 'knn.ipynb']],
-  'a2': [['linear_classifier.ipynb'], ['two_layer_net.ipynb']],
-  'a3': [['fully_connected_networks.ipynb'], ['convolutional_networks.ipynb']],
-  'a4': [['pytorch_autograd_and_nn.ipynb'], ['rnn_lstm_attention_captioning.ipynb'], \
-         ['network_visualization.ipynb'], ['style_transfer.ipynb']],
-  'a5': [['single_stage_detector_yolo.ipynb'], ['two_stage_detector_faster_rcnn.ipynb']],
-  'a6': [['generative_adversarial_networks.ipynb']],
+  'A1': [['pytorch101.ipynb'], ['pytorch101.py'], ['kNN.ipynb', 'knn.ipynb'], ['kNN.py', 'knn.py'],],
 }
 META_INFOS = {
   'pytorch101.ipynb': {
-    'num_cells': 152,
-    'num_markdowns': 89,
-    'code_cell_idx_list': [2, 28, 33, 42, 57, 61, 70, 75, 77, 98, 113, 122, 140, 151],
-    'num_code_outputs': 59,
+    'num_cells': 162,
+    'num_markdowns': 95,
+    'code_cell_idx_list': [10],
+    'num_code_outputs': 65
   },
   'knn.ipynb': {
-    'num_cells': 48,
-    'num_markdowns': 25,
-    'code_cell_idx_list': [16, 22, 26, 32, 40, 45],
-    'num_code_outputs': 16,
-  },
-  'linear_classifier.ipynb': {
-    'num_cells': 76,
-    'num_markdowns': 39,
-    'code_cell_idx_list': [13, 21, 27, 33, 39, 48, 56, 69],
-    'num_code_outputs': 27
-  },
-  'two_layer_net.ipynb': {
-    'num_cells': 54,
+    'num_cells': 50,
     'num_markdowns': 27,
-    'code_cell_idx_list': [12, 16, 24, 26, 49],
-    'num_code_outputs': 18
-  },
-  'fully_connected_networks.ipynb': {
-    'num_cells': 91,
-    'num_markdowns': 47,
-    'code_cell_idx_list': [15, 19, 26, 30, 42, 47, 50, 54, 56, 61, 67, 71, 79, 83],
-    'num_code_outputs': 25
-  },
-  'convolutional_networks.ipynb': {
-    'num_cells': 116,
-    'num_markdowns': 57,
-    'code_cell_idx_list': [14, 20, 26, 30, 45, 59, 65, 67, 73, 79, 85, 90, 95, 101],
-    'num_code_outputs': 37
-  },
-  'pytorch_autograd_and_nn.ipynb': {
-    'num_code_outputs': 22,
-    'num_markdowns': 36,
-    'code_cell_idx_list': [18, 30, 34, 42, 48, 51, 54, 64, 69],
-    'num_cells': 73
-  },
-  'rnn_lstm_attention_captioning.ipynb': {
-    'num_code_outputs': 30,
-    'num_markdowns': 63,
-    'code_cell_idx_list': [15, 19, 23, 27, 40, 46, 50, 52, 54, 69, 73, 89, 97],
-    'num_cells': 112
-  },
-  'network_visualization.ipynb': {
-    'num_code_outputs': 9,
-    'num_markdowns': 14,
-    'code_cell_idx_list': [12, 16, 23],
-    'num_cells': 28
-  },
-  'style_transfer.ipynb': {
-    'num_code_outputs': 12,
-    'num_markdowns': 20,
-    'code_cell_idx_list': [16, 20, 24, 28],
-    'num_cells': 39
-  },
-  'single_stage_detector_yolo.ipynb': {
-    'num_code_outputs': 27,
-    'num_markdowns': 57,
-    'code_cell_idx_list': [38, 43, 56, 66, 82, 93, 98],
-    'num_cells': 107
-  },
-  'two_stage_detector_faster_rcnn.ipynb': {
-    'num_code_outputs': 20,
-    'num_markdowns': 33,
-    'code_cell_idx_list': [28, 39, 50],
-    'num_cells': 63
-  },
-  'generative_adversarial_networks.ipynb': {
-    'num_cells': 56,
-    'num_markdowns': 28,
-    'code_cell_idx_list': [15, 19, 23, 28, 33, 39, 46, 50],
-    'num_code_outputs': 17
+    'code_cell_idx_list': [45],
+    'num_code_outputs': 22
   },
 }
 #################################################
 
-OUR_TEST_ZIP_FILENAME = 'test.zip'
+_OUR_TEST_ZIP_FILENAME = 'test.zip'
 parser = argparse.ArgumentParser()
 parser.add_argument('assignment', choices=HOMEWORK_FILENAMES.keys())
 parser.add_argument('zip_file_path')
 
-def run_evaluation(testfile_path, tempdir_path, filenames):
+def run_evaluation(testfile_path, tempdir_path, assignment_no, filenames):
   # unzip the zip file
   temp_zipfile = zipfile.ZipFile(testfile_path, 'r')
   temp_zipfile.extractall(tempdir_path)
@@ -127,19 +55,20 @@ def run_evaluation(testfile_path, tempdir_path, filenames):
         break
     if not single_file_exists:
       print("[ERROR] Zip file does not include {}".format(single_filename_candiates[0]))
-      print("[Comment] Please zip with with '$ zip uniquename_umid.zip {}'.".format(targetfile_list_str))
+      print("[Comment] Please zip with with '$ zip uniquename_umid_{}.zip {}'.".format(assignment_no, targetfile_list_str))
       return False
-    repfile_to_repfile_dict[student_filename.lower()] = student_filename
+    if student_filename.endswith('.ipynb'):
+      repfile_to_repfile_dict[student_filename.lower()] = student_filename
 
 
   # 2-1. check is there any other files exists
   flatten_filename_list = [y for x in filenames for y in x]
-  flatten_filename_list.append(OUR_TEST_ZIP_FILENAME)
+  flatten_filename_list.append(_OUR_TEST_ZIP_FILENAME)
   for iter_filename in os.listdir(tempdir_path):
     single_filename = os.path.basename(iter_filename)
     if single_filename not in flatten_filename_list:
       print("[ERROR] Zipfile includes unexpected file: {}".format(single_filename))
-      print("[Comment] Please zip with with '$ zip uniquename_umid.zip {}'.".format(targetfile_list_str))
+      print("[Comment] Please zip with with '$ zip uniquename_umid_{}.zip {}'.".format(assignment_no, targetfile_list_str))
       return False
 
 
@@ -202,22 +131,22 @@ def main(args):
 
   # 1. Check zip filename format
   filename = os.path.basename(args.zip_file_path)
-  if not re.match(r"[a-z]+_\d{8}\.zip", filename):
-    print("[Warning] Please set it as uniquename_umid.zip.")
-
+  if not re.match(r"[a-z]+_\d{8}_A\d{1}\.zip", filename):
+    print("[Warning] Please set it as uniquename_umid_A?.zip.")
+    print("We will run the eval even for this case, by the way.")
 
   # create temporary folder
   tempdir_path = tempfile.mkdtemp()
   print("Temp folder path: {}".format(tempdir_path))
 
   # copy the zip file to temporary folder
-  testfile_path = os.path.join(tempdir_path, OUR_TEST_ZIP_FILENAME)
+  testfile_path = os.path.join(tempdir_path, _OUR_TEST_ZIP_FILENAME)
   shutil.copyfile(args.zip_file_path, testfile_path)
 
   # get the filenames for this assignment
   filenames = HOMEWORK_FILENAMES[args.assignment]
 
-  is_LGTM = run_evaluation(testfile_path, tempdir_path, filenames)
+  is_LGTM = run_evaluation(testfile_path, tempdir_path, args.assignment, filenames)
 
   # 4. remove temporary folder
   print("Removing the temp folder {}".format(tempdir_path))
